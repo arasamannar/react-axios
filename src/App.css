@@ -1,58 +1,76 @@
-body {
-  margin: 0;
-  font-family: 'Your preferred font', sans-serif;
-  background: radial-gradient(circle at center, #333, #000);
-  color: #fff;
-}
-
-#root {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
   text-align: center;
 }
 
-.user-list {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.user-list-item {
-  background-color: #222;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  color: #fff;
-}
-
-@media screen and (min-width: 768px) {
-  .user-list {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.user-table {
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+/* App.css */
+
+/* Add any global styles or reset styles if needed */
+
+body {
+  background-color: #f0f0f0; /* Set the background color for the entire page */
+}
+
+.table-container {
   width: 100%;
-  overflow-x: auto; /* Add horizontal scroll for small screens if needed */
+  margin-top: 20px;
+  background-color: #fff; /* Set the background color for the table container */
+  border-radius: 8px; /* Optional: Add border-radius for a rounded appearance */
+  overflow: hidden; /* Optional: Hide overflowing content */
 }
 
-/* Styles for the table headers */
-.table-row {
-  background-color: green;
-  border: 1px solid white;
+.table-style {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* Responsive styles for table cells */
-@media screen  and (max-width: 767px) {
-  /* Adjust styles for smaller screens */
-  .table td,
-  .table th {
-    font-size: 12px; /* Adjust font size */
-    padding: 8px; /* Adjust padding */
+.th-td-style {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.th-style {
+  background-color: #333; /* Set the background color for the table head */
+  color: #fff; /* Set the text color for the table head */
+}
+
+.td-style {
+  background-color: #f9f9f9; /* Set the background color for the table body */
+}
+
+/* Add more styles as needed */
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
+  to {
+    transform: rotate(360deg);
+  }
 }
