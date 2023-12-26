@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Create from './Create';
 import Update from './Update';
+import ErrorBoundary from './ErrorBoundary';
 
 const store = configureStore({
   reducer: {
@@ -29,7 +30,7 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
+    <ErrorBoundary>    <Provider store={store}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,7 +38,8 @@ const App = () => {
           <Route path="/edit/:id" element={<Update />} />
         </Routes>
       </Router>
-    </Provider>
+    </Provider></ErrorBoundary>
+
   );
 };
 

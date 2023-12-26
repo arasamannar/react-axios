@@ -27,28 +27,28 @@ const Update = () => {
 
     // Check if it's an existing user or a new user
     if (existingUser.id) {
-      // Update existing user in the API and Redux store
-      axios
-  .patch(`https://jsonplaceholder.typicode.com/users/${id}`, { name, email })
-  .then((response) => {
-    dispatch(editUser(response.data));
-    navigate('/');
-  })
-  .catch((error) => {
-    console.error('Error updating user:', error);
-  });
-    } else {
-      // It's a new user, add to the API and Redux store
-      axios
-        .post('https://jsonplaceholder.typicode.com/users', { name, email })
-        .then((response) => {
-          dispatch(addUser(response.data));
-          navigate('/');
-        })
-        .catch((error) => {
-          console.error('Error adding user:', error);
-        });
-    }
+        // Update existing user in the API and Redux store
+        axios
+          .patch(`https://jsonplaceholder.typicode.com/users/${id}`, { name, email })
+          .then((response) => {
+            dispatch(editUser(response.data));
+            navigate('/');
+          })
+          .catch((error) => {
+            console.error('Error updating user:', error);
+          });
+      } else {
+        // It's a new user, add to the API and Redux store
+        axios
+          .post('https://jsonplaceholder.typicode.com/users', { name, email })
+          .then((response) => {
+            dispatch(addUser(response.data));
+            navigate('/');
+          })
+          .catch((error) => {
+            console.error('Error adding user:', error);
+          });
+      }
   };
 
   return (

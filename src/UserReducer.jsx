@@ -2,15 +2,26 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
+const generateNextUserId = () => {
+  let storedId = localStorage.getItem('nextUserId');
+  let nextId = storedId ? parseInt(storedId, 10) + 1 : 11;
+  localStorage.setItem('nextUserId', nextId.toString());
+  return nextId;
+};
+
 export const userSlice = createSlice({
   name: 'users',
   initialState: [],
   reducers: {
     setUsers: (state, action) => {
-      return action.payload;
+      return action.payload.map(user => ({ ...user }));
     },
     addUser: (state, action) => {
-      state.push(action.payload);
+      const newUser = {
+        id: generateNextUserId(),
+        ...action.payload,
+      };
+      return [...state, newUser];
     },
     editUser: (state, action) => {
       const { id, name, email } = action.payload;

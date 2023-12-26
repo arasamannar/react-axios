@@ -9,6 +9,7 @@ import './App.css'; // Import your CSS file
 
 function Home() {
   const users = useSelector((state) => state.users);
+  console.log(users);
   const dispatch = useDispatch();
 
   const handleDelete = async (id) => {
